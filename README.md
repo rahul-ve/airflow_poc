@@ -10,3 +10,7 @@
 - docker-compose up airflow-init
 - docker-compose up -d
 - access webserver - http://localhost:8080
+- to bring down:
+    - docker-compose down
+- to bring down and delete postgres volume
+    - docker-compose down --volumes
