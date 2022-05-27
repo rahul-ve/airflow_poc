@@ -84,6 +84,8 @@ services:
       test: ["CMD", "pg_isready", "-U", "airflow"]
       interval: 5s
       retries: 5
+    ports:
+      - 5432:5432
     restart: always
 
   redis:
