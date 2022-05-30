@@ -27,6 +27,9 @@ with DAG(
         API_ENDPOINT="https://query1.finance.yahoo.com/v7/finance/quote?lang=en-US&region=US&corsDomain=finance.yahoo.com"
         TICKER='TSLA'
 
+        # jq is not installed!!
+        #PAYLOAD=$(curl --silent "$API_ENDPOINT&symbols=$TICKER"  | jq '.quoteResponse .result')
+        #echo $PAYLOAD | jq -r ".[] | select(.symbol == \"$TICKER\")
 
         PAYLOAD=$(curl --silent "$API_ENDPOINT&symbols=$TICKER" )
         PRICE=$(echo $PAYLOAD | grep -Po '"regularMarketPrice":[0-9.]+')
